@@ -1,0 +1,36 @@
+---
+
+- name: Prepare
+  hosts: all
+  tasks:
+
+    - name: Create a fake log file
+      ansible.builtin.file:
+        path: /var/log/auth.log
+        state: touch
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Install fail2ban
+      ansible.builtin.apt:
+        name:
+          - fail2ban
+          - curl
+        state: present
+        update_cache: true
+      when: ansible_facts['os_family'] == 'Debian'
+    
+    - name: Install fail2ban
+      ansible.builtin.dnf:
+        name:
+          - fail2ban
+          - curl
+        update_cache: true
+        state: present
+      when: ansible_facts['os_family'] == 'RedHat'
+    
+    - name: Start fail2ban
+      ansible.builtin.command:
+        cmd: fail2ban-server start
+      changed_when: false

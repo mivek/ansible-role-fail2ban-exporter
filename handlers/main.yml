@@ -1,0 +1,10 @@
+---
+
+- name: restart fail2ban_exporter
+  ansible.builtin.systemd:
+    name: fail2ban_exporter
+    daemon_reload: true
+    state: restarted
+    enabled: true
+  environment:
+    FAIL2BAN_EXPORTER_PORT: "{{ fail2ban_exporter_port | default(omit) }}"

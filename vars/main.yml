@@ -1,0 +1,4 @@
+---
+# vars file for mivek.fail2ban_exporter
+
+__fail2ban_exporter_executable_url: "https://github.com/mivek/fail2ban_exporter/releases/download/{{ fail2ban_exporter_version }}/fail2ban_exporter_executable-{{ fail2ban_exporter_version }}.tar.gz"

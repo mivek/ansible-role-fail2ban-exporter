@@ -1,0 +1,19 @@
+---
+
+- name: Download and unarchive the executable
+  ansible.builtin.unarchive:
+    src: "{{ __fail2ban_exporter_executable_url }}"
+    dest: /usr/local/bin
+    remote_src: true
+    owner: root
+    group: root
+    mode: '0755'
+
+- name: Create the service file
+  ansible.builtin.template:
+    src: fail2ban_exporter.service.j2
+    dest: /etc/systemd/system/fail2ban_exporter.service
+    owner: root
+    group: root
+    mode: '0644'
+  notify: restart fail2ban_exporter
