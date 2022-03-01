@@ -1,5 +1,5 @@
 ---
 # defaults file for mivek.fail2ban_exporter
 
-fail2ban_exporter_version: '0.0.2'
+fail2ban_exporter_version: '0.0.3'
 fail2ban_exporter_port: 9921

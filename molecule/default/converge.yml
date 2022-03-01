@@ -2,4 +2,4 @@
 - name: Converge
   hosts: all
   roles:
-    - mivek.fail2ban_exporter
+    - fail2ban_exporter
