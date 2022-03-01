@@ -17,10 +17,6 @@ galaxy_info:
     versions:
     - 18.04
     - 20.04
-  - name: Centos
-    versions:
-    - 8
-
 
   galaxy_tags:
     - fail2ban
