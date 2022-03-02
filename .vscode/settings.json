@@ -1,0 +1,6 @@
+{
+    "yaml.schemas": {
+        "https://json.schemastore.org/github-action.json": "file:///c%3A/Users/Jk/ansible/fail2ban_exporter/.github/workflows/galaxy.yml",
+        "https://json.schemastore.org/github-workflow.json": "file:///c%3A/Users/Jk/ansible/fail2ban_exporter/.github/workflows/deploy.yml"
+    }
+}

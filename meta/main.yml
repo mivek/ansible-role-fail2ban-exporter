@@ -1,0 +1,26 @@
+galaxy_info:
+  author: mivek
+  description: This role installs fail2ban_exporter.
+
+  issue_tracker_url: https://github.com/mivek/ansible-role-fail2ban-exporter/issues
+
+  license: BSD
+
+  min_ansible_version: 2.9
+
+  platforms:
+  - name: Debian
+    versions:
+    - 10
+    - 11
+  - name: Ubuntu
+    versions:
+    - 18.04
+    - 20.04
+
+  galaxy_tags:
+    - fail2ban
+    - prometheus
+    - exporter
+
+dependencies: []

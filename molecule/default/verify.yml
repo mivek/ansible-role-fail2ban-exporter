@@ -1,0 +1,32 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: true
+  tasks:
+
+  - name: Populate service facts
+    ansible.builtin.service_facts:
+
+  - name: check the service
+    ansible.builtin.assert:
+      that:
+        - ansible_facts.services['fail2ban_exporter.service'].state == 'running'
+        - ansible_facts.services['fail2ban_exporter.service'].status == 'enabled'
+  
+  - name: Call the metrics page
+    ansible.builtin.uri:
+      url: http://localhost:9921/metrics
+      return_content: true
+    register: response
+  
+  - name: Checks on the response
+    ansible.builtin.assert:
+      that:
+        - response.status == 200
+        - "'fail2ban_currently_banned{jail=\"sshd\"}' is in response.content"
+        - "'fail2ban_banned_total{jail=\"sshd\"}' in response.content"
+        - "'fail2ban_currently_failed{jail=\"sshd\"}' in response.content"
+        - "'fail2ban_jail_count' in response.content"
+        - "'fail2ban_failed_total{jail=\"sshd\"}' in response.content"
