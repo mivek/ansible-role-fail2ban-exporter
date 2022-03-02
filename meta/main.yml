@@ -1,5 +1,6 @@
 galaxy_info:
   author: mivek
+  role_name: fail2ban_exporter
   description: This role installs fail2ban_exporter.
 
   issue_tracker_url: https://github.com/mivek/ansible-role-fail2ban-exporter/issues
@@ -11,12 +12,12 @@ galaxy_info:
   platforms:
   - name: Debian
     versions:
-    - 10
-    - 11
+    - buster
+    - bullseye
   - name: Ubuntu
     versions:
-    - 18.04
-    - 20.04
+    - bionic
+    - focal
 
   galaxy_tags:
     - fail2ban
